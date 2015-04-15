@@ -1,0 +1,2 @@
+sql server top所有记录
+ select top 100 percent * from tableName
