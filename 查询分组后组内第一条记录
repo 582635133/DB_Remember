@@ -1,0 +1,7 @@
+//sql server 查询分组后组内第一条记录
+select * from (
+       SELECT  A.id, A.HYZJ, A.HYLBZJ,  B.FWCP, 
+       ROW_NUMBER() over(PARTITION by A.HYZJ order by B.FWCP) as num 
+  	   FROM  A  LEFT JOIN  B  on(A.hylbzj = B.lbzj)
+  	   where A.zt = 1
+  	   )T WHERE T.num = 1 
